@@ -1,0 +1,216 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+header {
+    text-align: center;
+}
+
+header h1 {
+    font-size: 1.85em;
+    margin: 15px 0;
+}
+
+header ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+header a {
+    text-decoration: none;
+    color: #3acec2;
+    font-size: 1.25em;
+    display: inline-block;
+    width: 100%;
+    padding: 10px 0;
+    margin: 5px 0;
+}
+
+.banner {
+    background-color: #3acec2;
+    padding: 50px 0;
+    text-align: center;
+    color: white;
+    font-size: 1.4em;
+}
+
+.banner img {
+    width: 250px;
+    height: 250px;
+}
+
+.info {
+    margin: 75px 15px;
+}
+
+h3 {
+    color: #093a58;
+    font-size: 1.85em;
+}
+
+.info p {
+    font-size: 1.15em;
+    line-height: 1.5;
+}
+
+figure {
+    position: relative;
+    margin: 0;
+    line-height: 0;
+}
+
+.location {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    right: -15px;
+    top: -15px;
+}
+
+figcaption {
+    position: absolute;
+    color: white;
+    background-color: rgb(0, 0, 139, .7);
+    bottom: 0;
+    width: 100%;
+    padding: 0 1em;
+}
+
+figcaption h4 {
+    font-size: 1.3em;
+}
+
+
+.heavy {
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    background-color: lightgray;
+    padding: 1em;
+    font-size: 1.2em;
+}
+
+/*2 column layout for bigger than mobile screens */
+
+@media only screen and (min-width: 768px) {
+  
+    
+
+    /* 
+        - set unordered list to flex so it goes in a row
+        - add space to the list items with space-between
+        - flex box container here was only the size of its content, we increase it with the width property
+    */
+
+    /* ul {
+        display: flex;
+        justify-content: space-between;
+        width: 50%;
+    } */
+
+    /*
+        Column Nav
+        - set container with flex, unordered list to flex
+        - align the items center
+        - spacing around nav items by targeting list items and putting padding
+    */
+
+    header .container,
+    ul,
+    .info {
+        display: flex;
+    }
+
+    header .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    ul li {
+        padding: 0 15px;
+    }
+
+    .info {
+        margin-right: 0;
+        margin-left: 0;
+    } 
+
+    .container {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    /*
+        -flexbox applied to the columns container
+        - for medium display size, 2 columns on top and a row of content on the bottom
+        - set column one and two to take up as halves 
+        - apply column gutter with padding
+        
+    */
+    .info {
+        flex-wrap: wrap;
+    }
+
+    .one,
+    .two {
+        width: 50%;
+    }
+
+    .one {
+        padding-right: 25px;
+    }
+}
+
+/* Three column layout for desktop sizes*/
+
+@media only screen and (min-width: 1026px) {
+    /*
+        Horizontal Navigation
+        - set direction of navigation to row for horizontal style since we apply a column style in smaller screen media query
+        - justify-content: space-between in the parent container so first child element sticks the start(h1) to the left and last child (ul) sticks to the right. 
+    */
+
+    header .container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+        /* 
+        - set unordered list to flex so it goes in a row
+        - add space to the list items with space-between
+        - flex box container here was only the size of its content, we increase it with the width property
+        -get rid of list item padding
+    */
+
+    ul {
+        width: 50%;
+        justify-content: space-between;
+    }
+
+    ul li {
+        padding: 0;
+    }
+    
+    
+    /*
+        -set columns to have a predetermined width
+    */
+    .col {
+        width: 25%;
+    }
+
+    .two {
+        flex: 1;
+        padding: 0 25px;
+    }
+
+    .container {
+        max-width: 1150px;
+    }
+}
